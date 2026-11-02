@@ -1,0 +1,27 @@
+# Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Local configuration, credentials and logs
+.env
+.env.*
+!.env.example
+*.log
+*.token
+secrets/
+
+# Build and OS files
+build/
+dist/
+*.spec
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Local archives and temporary files
+*.zip
+*.tmp
+*.bak
