@@ -98,7 +98,7 @@ WINDOWS_EXTENDED_VK = {
     0x2C, 0x2D, 0x2E, 0x5B, 0x5C, 0x5D, 0x6F,
 }
 WINDOWS_PUNCTUATION_VK = {
-    "\`": 0xC0, "-": 0xBD, "=": 0xBB, "[": 0xDB, "]": 0xDD,
+    "`": 0xC0, "-": 0xBD, "=": 0xBB, "[": 0xDB, "]": 0xDD,
     "\\": 0xDC, ";": 0xBA, "'": 0xDE, ",": 0xBC,
     ".": 0xBE, "/": 0xBF,
 }
@@ -188,7 +188,7 @@ def key_object(name: str) -> Any:
     if isinstance(name, str) and len(name) == 1 and name.isprintable():
         if platform.system() == "Windows":
             punctuation_vks = {
-                "\`": 0xC0, "-": 0xBD, "=": 0xBB,
+                "`": 0xC0, "-": 0xBD, "=": 0xBB,
                 "[": 0xDB, "]": 0xDD, "\\": 0xDC,
                 ";": 0xBA, "'": 0xDE, ",": 0xBC,
                 ".": 0xBE, "/": 0xBF,
