@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#101827">
+  <meta name="description" content="Полноценная экранная клавиатура iPhone для Windows по Wi-Fi">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="icon" href="/icons/icon-192.png">
+  <link rel="apple-touch-icon" href="/icons/icon-192.png">
+  <link rel="stylesheet" href="/static/style.css?v=3">
+  <title>Экранная клавиатура для ПК</title>
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <div class="brand-mark" aria-hidden="true">⌨</div>
+      <div class="brand-copy">
+        <h1>Экранная клавиатура</h1>
+        <p>iPhone → Windows 11</p>
+      </div>
+      <div class="connection" id="connection" data-state="connecting">
+        <span class="status-dot"></span>
+        <span id="connection-label">Подключение…</span>
+      </div>
+    </header>
+
+    <section class="pair-card" id="pair-card" hidden>
+      <div class="pair-copy">
+        <span class="eyebrow">ПОДКЛЮЧЕНИЕ ТЕЛЕФОНА</span>
+        <h2>Открой ссылку с компьютера</h2>
+        <p>На iPhone введи полный адрес из окна Windows вместе с кодом подключения.</p>
+      </div>
+      <img src="/pair.png" alt="QR-код подключения" width="120" height="120">
+    </section>
+
+    <section class="keyboard-card">
+      <div class="keyboard-title-row">
+        <div>
+          <span class="eyebrow">НАЖИМАЙ КНОПКИ НИЖЕ</span>
+          <h2>Клавиатура ПК</h2>
+        </div>
+        <span class="mode-hint">Нажатия идут в активное окно Windows</span>
+      </div>
+
+      <div class="layout-tabs" role="tablist" aria-label="Разделы клавиатуры">
+        <button class="layout-tab active" data-layout="main" role="tab" aria-selected="true">Основная</button>
+        <button class="layout-tab" data-layout="numpad" role="tab" aria-selected="false">NumPad</button>
+        <button class="layout-tab" data-layout="shortcuts" role="tab" aria-selected="false">Сочетания</button>
+      </div>
+
+      <div class="keyboard-layout active" id="layout-main" role="tabpanel">
+        <div class="function-strip" aria-label="Функциональные клавиши">
+          <button class="key key-fn" data-key="esc">Esc</button>
+          <button class="key key-fn" data-key="f1">F1</button>
+          <button class="key key-fn" data-key="f2">F2</button>
+          <button class="key key-fn" data-key="f3">F3</button>
+          <button class="key key-fn" data-key="f4">F4</button>
+          <button class="key key-fn" data-key="f5">F5</button>
+          <button class="key key-fn" data-key="f6">F6</button>
+          <button class="key key-fn" data-key="f7">F7</button>
+          <button class="key key-fn" data-key="f8">F8</button>
+          <button class="key key-fn" data-key="f9">F9</button>
+          <button class="key key-fn" data-key="f10">F10</button>
+          <button class="key key-fn" data-key="f11">F11</button>
+          <button class="key key-fn" data-key="f12">F12</button>
+        </div>
+
+        <div class="key-row number-row">
+          <button class="key" data-key="`">~</button>
+          <button class="key" data-key="1"><small>!</small>1</button>
+          <button class="key" data-key="2"><small>@</small>2</button>
+          <button class="key" data-key="3"><small>#</small>3</button>
+          <button class="key" data-key="4"><small>$</small>4</button>
+          <button class="key" data-key="5"><small>%</small>5</button>
+          <button class="key" data-key="6"><small>^</small>6</button>
+          <button class="key" data-key="7"><small>&amp;</small>7</button>
+          <button class="key" data-key="8"><small>*</small>8</button>
+          <button class="key" data-key="9"><small>(</small>9</button>
+          <button class="key" data-key="0"><small>)</small>0</button>
+          <button class="key" data-key="-"><small>_</small>-</button>
+          <button class="key" data-key="="><small>+</small>=</button>
+          <button class="key key-special" data-key="backspace" aria-label="Backspace">⌫</button>
+        </div>
+
+        <div class="key-row q-row">
+          <button class="key key-special key-tab" data-key="tab">Tab</button>
+          <button class="key" data-key="q">Q<small>Й</small></button>
+          <button class="key" data-key="w">W<small>Ц</small></button>
+          <button class="key" data-key="e">E<small>У</small></button>
+          <button class="key" data-key="r">R<small>К</small></button>
+          <button class="key" data-key="t">T<small>Е</small></button>
+          <button class="key" data-key="y">Y<small>Н</small></button>
+          <button class="key" data-key="u">U<small>Г</small></button>
+          <button class="key" data-key="i">I<small>Ш</small></button>
+          <button class="key" data-key="o">O<small>Щ</small></button>
+          <button class="key" data-key="p">P<small>З</small></button>
+          <button class="key" data-key="[">[<small>Х</small></button>
+          <button class="key" data-key="]">]<small>Ъ</small></button>
+          <button class="key" data-key="\">\<small>/</small></button>
+        </div>
+
+        <div class="key-row home-row">
+          <button class="key key-special key-caps" data-key="capslock">Caps</button>
+          <button class="key" data-key="a">A<small>Ф</small></button>
+          <button class="key" data-key="s">S<small>Ы</small></button>
+          <button class="key" data-key="d">D<small>В</small></button>
+          <button class="key" data-key="f">F<small>А</small></button>
+          <button class="key" data-key="g">G<small>П</small></button>
+          <button class="key" data-key="h">H<small>Р</small></button>
+          <button class="key" data-key="j">J<small>О</small></button>
+          <button class="key" data-key="k">K<small>Л</small></button>
+          <button class="key" data-key="l">L<small>Д</small></button>
+          <button class="key" data-key=";">;<small>Ж</small></button>
+          <button class="key" data-key="'">'<small>Э</small></button>
+          <button class="key key-special key-enter" data-key="enter">Enter</button>
+        </div>
+
+        <div class="key-row shift-row">
+          <button class="key key-mod key-shift" data-modifier="shift">⇧ Shift</button>
+          <button class="key" data-key="z">Z<small>Я</small></button>
+          <button class="key" data-key="x">X<small>Ч</small></button>
+          <button class="key" data-key="c">C<small>С</small></button>
+          <button class="key" data-key="v">V<small>М</small></button>
+          <button class="key" data-key="b">B<small>И</small></button>
+          <button class="key" data-key="n">N<small>Т</small></button>
+          <button class="key" data-key="m">M<small>Ь</small></button>
+          <button class="key" data-key=",">,&lt;<small>Б</small></button>
+          <button class="key" data-key=".">.&gt;<small>Ю</small></button>
+          <button class="key" data-key="/">/<small>.</small></button>
+          <button class="key key-mod key-shift" data-modifier="shift">⇧</button>
+        </div>
+
+        <div class="key-row bottom-row">
+          <button class="key key-mod" data-modifier="ctrl">Ctrl</button>
+          <button class="key key-mod key-win" data-modifier="win">Win</button>
+          <button class="key key-mod" data-modifier="alt">Alt</button>
+          <button class="key key-space" data-key="space">Пробел</button>
+          <button class="key key-mod" data-modifier="alt">Alt</button>
+          <button class="key" data-key="menu">Menu</button>
+          <button class="key key-mod" data-modifier="ctrl">Ctrl</button>
+        </div>
+
+        <div class="nav-section">
+          <div class="nav-keys">
+            <button class="key key-small" data-key="insert">Ins</button>
+            <button class="key key-small" data-key="home">Home</button>
+            <button class="key key-small" data-key="pageup">PgUp</button>
+            <button class="key key-small" data-key="delete">Del</button>
+            <button class="key key-small" data-key="end">End</button>
+            <button class="key key-small" data-key="pagedown">PgDn</button>
+            <button class="key key-small" data-key="printscreen">PrtSc</button>
+            <button class="key key-small" data-key="scrolllock">ScrLk</button>
+            <button class="key key-small" data-key="pause">Pause</button>
+          </div>
+          <div class="arrow-pad" aria-label="Стрелки">
+            <button class="key arrow up" data-key="up">↑</button>
+            <div class="arrow-row">
+              <button class="key arrow" data-key="left">←</button>
+              <button class="key arrow" data-key="down">↓</button>
+              <button class="key arrow" data-key="right">→</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="keyboard-layout" id="layout-numpad" role="tabpanel" hidden>
+        <div class="numpad-grid">
+          <button class="key" data-key="numlock">NumLock</button>
+          <button class="key" data-key="numpad_divide">/</button>
+          <button class="key" data-key="numpad_multiply">*</button>
+          <button class="key" data-key="numpad_subtract">−</button>
+          <button class="key" data-key="numpad7">7</button>
+          <button class="key" data-key="numpad8">8</button>
+          <button class="key" data-key="numpad9">9</button>
+          <button class="key num-plus" data-key="numpad_add">+</button>
+          <button class="key" data-key="numpad4">4</button>
+          <button class="key" data-key="numpad5">5</button>
+          <button class="key" data-key="numpad6">6</button>
+          <button class="key" data-key="numpad1">1</button>
+          <button class="key" data-key="numpad2">2</button>
+          <button class="key" data-key="numpad3">3</button>
+          <button class="key key-enter num-enter" data-key="enter">Enter</button>
+          <button class="key key-zero" data-key="numpad0">0</button>
+          <button class="key" data-key="numpad_decimal">.</button>
+        </div>
+        <p class="layout-note">Цифровой блок. Работает как отдельная часть обычной клавиатуры.</p>
+      </div>
+
+      <div class="keyboard-layout" id="layout-shortcuts" role="tabpanel" hidden>
+        <div class="shortcut-grid">
+          <button class="shortcut" data-hotkey="ctrl,a">Выбрать всё <kbd>Ctrl + A</kbd></button>
+          <button class="shortcut" data-hotkey="ctrl,c">Копировать <kbd>Ctrl + C</kbd></button>
+          <button class="shortcut" data-hotkey="ctrl,v">Вставить <kbd>Ctrl + V</kbd></button>
+          <button class="shortcut" data-hotkey="ctrl,x">Вырезать <kbd>Ctrl + X</kbd></button>
+          <button class="shortcut" data-hotkey="ctrl,z">Отменить <kbd>Ctrl + Z</kbd></button>
+          <button class="shortcut" data-hotkey="ctrl,y">Повторить <kbd>Ctrl + Y</kbd></button>
+          <button class="shortcut" data-hotkey="alt,tab">Переключить окно <kbd>Alt + Tab</kbd></button>
+          <button class="shortcut" data-hotkey="ctrl,shift,esc">Диспетчер задач <kbd>Ctrl + Shift + Esc</kbd></button>
+          <button class="shortcut" data-hotkey="win,d">Показать рабочий стол <kbd>Win + D</kbd></button>
+          <button class="shortcut" data-hotkey="win,space">Сменить язык <kbd>Win + Space</kbd></button>
+          <button class="shortcut" data-hotkey="alt,f4">Закрыть окно <kbd>Alt + F4</kbd></button>
+          <button class="shortcut" data-hotkey="ctrl,alt,delete">Ctrl + Alt + Del <kbd>Ctrl + Alt + Del</kbd></button>
+        </div>
+      </div>
+
+      <div class="modifier-status" id="modifier-status">Модификаторы не выбраны</div>
+    </section>
+
+    <footer class="footer-note">
+      <span class="lock-icon">●</span>
+      <span>Сначала выбери окно на компьютере. Потом нажимай клавиши здесь. Раскладка EN/RU определяется Windows (Win + Space).</span>
+    </footer>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </main>
+  <script src="/static/app.js?v=3" defer></script>
+</body>
+</html>
